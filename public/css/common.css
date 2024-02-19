@@ -1,0 +1,29 @@
+/*前ページ共通のcss*/
+
+
+.nav-container {
+    background-image: -webkit-gradient(linear, right top, left top, from(#9be15d), to(#00e3ae));
+    background-image: -webkit-linear-gradient(right, #9be15d 0%, #00e3ae 100%);
+    background-image: linear-gradient(to left, #9be15d 0%, #00e3ae 100%);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.56);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.header-nav {
+    padding: 5px 12px;
+    margin: 0 8px;
+}
+
+.header-nav:hover {
+    /*透過*/
+    opacity: .7;
+    border-bottom: 2px solid black;
+}
+
+/*前頁共通の上部空白*/
+.main-container {
+    padding-top: 80px;
+}
