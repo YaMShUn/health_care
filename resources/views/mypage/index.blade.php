@@ -27,8 +27,8 @@
             @endforeach
         </div>
         <script>
-            const weight = @json($weight);
-            const date = @json($date);
+            const weight = @json(array_reverse($weight));
+            const date = @json(array_reverse($date));
             console.log(weight);
             console.log(date);
         </script>

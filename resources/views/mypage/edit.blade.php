@@ -1,4 +1,5 @@
 <x-app-layout>
+    <link rel="stylesheet" href="{{ asset('/css/mypage.css')  }}" >
     <div class="container">
         <div class="card-header">新しい食事の追加</div>
         <div>
