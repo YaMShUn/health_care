@@ -60,3 +60,36 @@
 .meal-img {
     width: 30%;
 }
+
+ /*編集フォームのcssを書く */
+
+/*体重記録投稿ページのCSS*/
+
+
+.card-header h2 {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.create-container {
+    margin: 100px auto 0 auto;
+}
+
+
+textarea {
+    resize: none;
+    width: 100%;
+}
+
+.create-image {
+    margin: 10px
+}
+
+.submit-btn {
+    text-align: center;
+}
+
+.container {
+    padding-top: 30px;
+}
+

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Health;
 use App\Models\Meal;
 use Cloudinary;
+use Carbon\Carbon;
 
 class MypageController extends Controller
 {
@@ -39,6 +40,11 @@ class MypageController extends Controller
      */
     public function weight_store(Request $request, Health $health)
     {
+        // 一日1回の投稿制限
+        $check_daypost = $health->whereDate('created_at', Carbon::today())->exists();
+        if($check_daypost) {
+            return redirect()->back()->with('error', '本日は投稿済みです。');
+        }
         $user = auth()->user();
         $input = $request["health"];
         $health->user_id = $user->id;

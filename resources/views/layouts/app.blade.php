@@ -34,6 +34,12 @@
             <main>
                 {{ $slot }}
             </main>
+                        
+            <footer>
+                <div class="footer">
+                    <p class="footer-text">&copy; 2024 Your Website</p>
+                </div>
+            </footer>
         </div>
     </body>
 </html>
