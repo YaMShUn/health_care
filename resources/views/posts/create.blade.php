@@ -4,7 +4,7 @@
 
         <link rel="stylesheet" href="{{ asset('/css/post.css')  }}" >
         <div  class="buttons inner">
-            <a class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" href="/posts">戻る</a>
+            <a class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" href="/">戻る</a>
         </div>
         
         <div class="create-container">
