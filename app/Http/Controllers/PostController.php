@@ -16,7 +16,7 @@ class PostController extends Controller
      */
     public function index(Post $post)
     {
-        $posts = $post->get();
+        $posts = $post->orderBy('created_at','desc')->get();
         return view("posts.index")->with(['posts' => $posts]);
     }
 
@@ -45,14 +45,13 @@ class PostController extends Controller
         //     'image_url' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // 画像のバリデーション
         // ]);
 
-
-
         // データベースに保存
         $input = $request['post'];
         if($request->file('image')){ //画像ファイルが送られた時だけ処理が実行される
             $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
             $input += ['image_url' => $image_url];
         }
+        $input += ['user_id' => auth()->user()->id];
         $post->fill($input)->save();
 
         // リダイレクトまたは適切な応答を返す
@@ -71,29 +70,28 @@ class PostController extends Controller
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    
+    // 編集ページを表示する処理
+    public function edit(Post $post)
     {
-        //
+        return view('posts.edit')->with(['post' => $post]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    // 編集する処理
+    public function update(Post $post, Request $request)
     {
-        //
+        // データベースに保存
+        $input = $request['post'];
+        if($request->file('image')){ //画像ファイルが送られた時だけ処理が実行される
+            $image_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+            $input += ['image_url' => $image_url];
+        }
+        $post->fill($input)->save();// データベースに保存
+        return redirect('/');
     }
+
+    
+    
 
     /**
      * Remove the specified resource from storage.
@@ -105,4 +103,11 @@ class PostController extends Controller
     {
         //
     }
+    
+    public function delete(Post $post)
+    {
+        $post->delete();
+        return redirect('/');
+    }
+    
 }

@@ -61,7 +61,7 @@ class MypageController extends Controller
         // 体重記録更新の処理
         $input = $request["health"];
         $health->fill($input)->save();
-        return redirect('/mypage/weight/edit/' . $health->id);
+        return redirect('/mypage');
         
     }
     
