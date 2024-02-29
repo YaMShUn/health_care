@@ -59,6 +59,33 @@
 
 .meal-img {
     width: 30%;
+    margin-bottom: 10px;
+}
+
+.meal-container {
+    flex-wrap: wrap; /* 画面幅に合わせてカラム落ちさせる */
+    display: flex;
+    justify-content: space-between;
+    align-items: top
+}
+
+.meal-container .meals {
+    width: 30%;  /* お好みの幅で指定 */
+    padding:16px;  /* お好みの幅で指定 */
+    /* paddingと合わせてbox-sizingも指定 */
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box
+}
+
+/* 最後のコンテンツを左寄せにする指定 */
+.meal-container:after {
+    content: "";
+    display: block;
+    width: 30%;  /* .boxに指定したwidthと同じ幅を指定する */
+    height: 0;
+    margin-bottom: 10px;
 }
 
  /*編集フォームのcssを書く */
@@ -66,9 +93,10 @@
 /*体重記録投稿ページのCSS*/
 
 
-.card-header h2 {
-    font-size: 22px;
+.card-header  {
+    font-size: 20px !important;
     font-weight: bold;
+    text-align: center;
 }
 
 .create-container {
@@ -102,4 +130,23 @@ textarea {
 .buttons {
     padding-top: 30px;
     padding-bottom: 30px;
+}
+
+.green-btn {
+    padding: 5px 10px;
+    color: green;
+    border: 1px solid green;
+    border-radius: 5px;
+    margin: 15px auto 0 auto;
+    text-align: center;
+}
+
+
+.green-btn:hover {
+    color: white;
+    background-color: green;
+}
+
+.buttons {
+     margin: 15px auto 0 auto;
 }

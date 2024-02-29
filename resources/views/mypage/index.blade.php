@@ -16,7 +16,7 @@
                 $weight = [];
                 $date = [];
             @endphp
-            @foreach($healths as $health)
+            @foreach(collect($healths)->reverse() as $health)
             @php
                 $weight[] = $health->weight;
                 $date[] = $health->created_at->toDateString();;
@@ -27,8 +27,8 @@
             @endforeach
         </div>
         <script>
-            const weight = @json(array_reverse($weight));
-            const date = @json(array_reverse($date));
+            const weight = @json($weight);
+            const date = @json($date);
             console.log(weight);
             console.log(date);
         </script>
@@ -36,8 +36,7 @@
             <h2>食事記録</h2>
         </div>
         <div class="meal-container">
-            
-            @foreach($meals as $meal)
+             @foreach($meals as $meal)
             <div class="meal-img">
                 <img src="{{$meal->image_url}}"/>
             </div>
