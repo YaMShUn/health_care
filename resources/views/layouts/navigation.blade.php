@@ -47,7 +47,11 @@
                     </x-slot>
                 </x-dropdown>
                 <!--プロフィール画像-->
-                <div class="nav-img" style="background-image:url({{ Auth::user()->image_url ?? '' }});"></div>
+                @if(Auth::user()->image_url)
+                <div class="nav-img" style="background-image:url({{ Auth::user()->image_url }});"></div>
+                @else
+                <div class="nav-img" style="background-image:url({{ asset('/images/default.jpg') }});"></div>
+                @endif
             </div>
 
             <!-- Hamburger -->
