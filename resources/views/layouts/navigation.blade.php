@@ -48,9 +48,13 @@
                 </x-dropdown>
                 <!--プロフィール画像-->
                 @if(Auth::user()->image_url)
-                <div class="nav-img" style="background-image:url({{ Auth::user()->image_url }});"></div>
+                <a href="/profile">
+                    <div class="nav-img" style="background-image:url({{ Auth::user()->image_url }});"></div>
+                </a>
                 @else
-                <div class="nav-img" style="background-image:url({{ asset('/images/default.jpg') }});"></div>
+                <a href="/profile">
+                    <div class="nav-img" style="background-image:url({{ asset('/images/default.jpg') }});"></div>
+                </a>
                 @endif
             </div>
 
