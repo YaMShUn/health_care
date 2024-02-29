@@ -14,10 +14,10 @@
             <!-- Settings Dropdown -->
             <div class="flex hidden sm:flex sm:items-center sm:ml-6">
                 <x-nav-link :href="route('posts.index')" :active="request()->routeIs('posts.index')">
-                        {{ __('Home') }}
+                        {{ __('ホーム') }}
                 </x-nav-link>
                 <x-nav-link :href="route('mypage.index')" :active="request()->routeIs('mypage.index')">
-                    {{ __('Mypage') }}
+                    {{ __('マイページ') }}
                 </x-nav-link>
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
@@ -41,11 +41,13 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('ログアウト') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
                 </x-dropdown>
+                <!--プロフィール画像-->
+                <div class="nav-img" style="background-image:url({{ Auth::user()->image_url ?? '' }});"></div>
             </div>
 
             <!-- Hamburger -->

@@ -23,7 +23,7 @@
                     <img src="{{ $post->image_url }}">
                 </div>
                 <div class="post-time">
-                    <p>{{ $post->updated_at}}</p>
+                    <p>{{ \Carbon\Carbon::parse($post->updated_at)->format('Y-m-d H:i') }}</p>
                 </div>
                 <div class="post-edit">
                     <a class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" href="/posts/{{ $post->id }}/edit">投稿編集</a>
